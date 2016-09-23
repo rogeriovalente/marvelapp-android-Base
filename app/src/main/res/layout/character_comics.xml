@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
+    android:id="@+id/headerLinearLay"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:id="@+id/comic_thumb"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+    </ImageView>
+
+    <TextView
+        android:id="@+id/comic_title"
+        android:paddingLeft="4dp"
+        android:layout_toRightOf="@+id/comic_thumb"
+        android:layout_centerVertical="true"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/divider" />
+</RelativeLayout>

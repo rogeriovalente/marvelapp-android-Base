@@ -8,4 +8,7 @@
         app:actionProviderClass="android.support.v7.widget.ShareActionProvider"
         />
 
+    <item android:id="@+id/action_favorite"
+          android:icon="@drawable/ic_action_favorite_off"
+          android:title="Favorite" app:showAsAction="ifRoom" />
 </menu>

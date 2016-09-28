@@ -1,5 +1,7 @@
 package br.com.frameworksystem.marvelapp.ui.activities;
 
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,8 +16,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import br.com.frameworksystem.marvelapp.R;
+import br.com.frameworksystem.marvelapp.broadcast.NetworkBroadcast;
 import br.com.frameworksystem.marvelapp.fragments.CharacterFragment;
 import br.com.frameworksystem.marvelapp.fragments.ComicFragment;
 import br.com.frameworksystem.marvelapp.fragments.EventFragment;
@@ -24,12 +28,36 @@ public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
+    protected void onResume() {
+        super.onResume();
+
+        registerReceiver(networkBroadcast, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        unregisterReceiver(networkBroadcast);
+    }
+
+    private NetworkBroadcast networkBroadcast = new NetworkBroadcast() {
+        @Override
+        public void onConnected(boolean isConnected) {
+            if (isConnected) {
+                Toast.makeText(MainActivity.this, "Internet voltou!", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(MainActivity.this, "Internet caiu!", Toast.LENGTH_LONG).show();
+            }
+        }
+    };
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

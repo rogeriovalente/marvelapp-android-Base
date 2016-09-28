@@ -13,6 +13,8 @@ public class Character implements Serializable {
     public String resourceUri;
     public List<MarvelUrl> urls;
     public String thumbnailUrl;
+
+  public Integer favorite;
 //    public MarvelUrl thumbnail;
 //    public MarvelResources<ComicResourceDto> comics;
 //    public MarvelResources<StoryResourceDto> stories;
@@ -30,6 +32,7 @@ public class Character implements Serializable {
                 ", resourceUri='" + resourceUri + '\'' +
                 ", urls=" + urls +
                 ", thumbnail=" + thumbnailUrl +
+                ", favorite=" + favorite +
                 '}';
     }
 
@@ -88,4 +91,14 @@ public class Character implements Serializable {
     public void setThumbnailUrl(String thumbnailUrl) {
         this.thumbnailUrl = thumbnailUrl;
     }
+
+
+  public Integer getFavorite() {
+    return favorite;
+  }
+
+  public void setFavorite(Integer favorite) {
+    this.favorite = favorite;
+  }
+
 }

@@ -1,8 +1,12 @@
 package br.com.frameworksystem.marvelapp.ui.activities;
 
 import android.content.Context;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
+import br.com.frameworksystem.marvelapp.broadcast.NetworkBroadcast;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
@@ -14,4 +18,5 @@ public class BaseActivity extends AppCompatActivity {
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
+
 }

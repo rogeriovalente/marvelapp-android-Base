@@ -11,4 +11,5 @@
     <string name="event_detail_name">Detalhe do Evento</string>
     <string name="character_detail_name">Personagem</string>
     <string name="title_share">Compartilhar</string>
+    <string name="msg_error_generic">Erro!</string>
 </resources>

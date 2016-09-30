@@ -19,6 +19,8 @@ import com.squareup.picasso.Picasso;
 
 import br.com.frameworksystem.marvelapp.R;
 import br.com.frameworksystem.marvelapp.model.Comic;
+import br.com.frameworksystem.marvelapp.model.ComicPrice;
+import br.com.frameworksystem.marvelapp.model.MarvelImage;
 
 /**
  * Created by rogerio.valente on 20/09/2016.
@@ -41,16 +43,18 @@ public class ComicDetailActivity extends BaseActivity {
 
     setTitle(comic.getTitle());
     ImageView imageView = (ImageView) findViewById(R.id.comic_detail_thumb);
-    Picasso.with(this).load(comic.getThumbnailUrl()).centerCrop().resize(560, 560).into(imageView);
+    Picasso.with(this).load(comic.getThumbnail().getImageUrl(MarvelImage.Size.DETAIL))
+        .centerCrop().resize(560, 560).into(imageView);
 
     TextView txtViewDescription = (TextView) findViewById(R.id.comic_detail_description);
     txtViewDescription.setText(comic.getDescription());
 
     TextView txtViewPrice = (TextView) findViewById(R.id.comic_detail_price);
-    txtViewPrice.setText(comic.getPrice());
+    ComicPrice comicPrice = comic.getPrices().get(0);
+    txtViewPrice.setText(comicPrice.price);
 
     TextView lstViewLangs = (TextView) findViewById(R.id.comic_detail_languages);
-    lstViewLangs.setText(comic.getLanguages().toString());
+    lstViewLangs.setText(comic.getLanguage());
 
     Button btnToast = (Button) findViewById(R.id.btn_toast);
     btnToast.setOnClickListener(new View.OnClickListener() {
@@ -86,7 +90,7 @@ public class ComicDetailActivity extends BaseActivity {
   }
 
   private Intent share() {
-    Uri uri = Uri.parse(comic.getDetailUrl());
+    Uri uri = Uri.parse(comic.getUrls().get(0).url);
     Intent shareIntent = new Intent();
     shareIntent.setAction(Intent.ACTION_VIEW);
     shareIntent.setData(uri);

@@ -7,6 +7,8 @@ package br.com.frameworksystem.marvelapp.service;
 public interface MP3Player {
 
   public void play(String url);
+
   public void stop();
+
   public void pause();
 }

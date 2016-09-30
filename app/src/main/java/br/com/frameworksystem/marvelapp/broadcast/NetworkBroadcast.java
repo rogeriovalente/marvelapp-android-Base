@@ -16,7 +16,7 @@ public abstract class NetworkBroadcast extends BroadcastReceiver {
     ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
     NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-    if (networkInfo != null && networkInfo.isConnected()){
+    if (networkInfo != null && networkInfo.isConnected()) {
       onConnected(true);
     } else {
       onConnected(false);

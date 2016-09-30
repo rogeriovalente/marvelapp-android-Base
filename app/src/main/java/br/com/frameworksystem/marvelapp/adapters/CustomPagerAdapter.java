@@ -28,7 +28,7 @@ public class CustomPagerAdapter extends PagerAdapter {
 
     ImageView imgView = new ImageView(container.getContext());
     imgView.setImageResource(Imgid[position]);
-    ((ViewPager) container).addView(imgView,0);
+    ((ViewPager) container).addView(imgView, 0);
     return imgView;
   }
 
@@ -39,6 +39,6 @@ public class CustomPagerAdapter extends PagerAdapter {
 
   @Override
   public void destroyItem(ViewGroup container, int position, Object object) {
-    ((ViewPager) container).removeView((View)object);
+    ((ViewPager) container).removeView((View) object);
   }
 }

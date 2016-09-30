@@ -9,59 +9,76 @@ import java.util.List;
 
 public class Comic implements Serializable {
 
-    private String title;
-    private String description;
-    private List<String> languages;
-    private String detailUrl;
-    private String price;
-    private String thumbnailUrl;
+  private String title;
+  private String description;
+  private String language;
+  private String detailUrl;
+  private String thumbnailUrl;
+  private List<MarvelUrl> urls;
+  private MarvelImage thumbnail;
+  private List<ComicPrice> prices;
 
+  public List<MarvelUrl> getUrls() {
+    return urls;
+  }
 
-    public String getTitle() {
-        return title;
-    }
+  public void setUrls(List<MarvelUrl> urls) {
+    this.urls = urls;
+  }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+  public List<ComicPrice> getPrices() {
+    return prices;
+  }
 
-    public String getDescription() {
-        return description;
-    }
+  public void setPrices(List<ComicPrice> prices) {
+    this.prices = prices;
+  }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+  public MarvelImage getThumbnail() {
+    return thumbnail;
+  }
 
-    public List<String> getLanguages() {
-        return languages;
-    }
+  public void setThumbnail(MarvelImage thumbnail) {
+    this.thumbnail = thumbnail;
+  }
 
-    public void setLanguages(List<String> languages) {
-        this.languages = languages;
-    }
+  public String getTitle() {
+    return title;
+  }
 
-    public String getDetailUrl() {
-        return detailUrl;
-    }
+  public void setTitle(String title) {
+    this.title = title;
+  }
 
-    public void setDetailUrl(String detailUrl) {
-        this.detailUrl = detailUrl;
-    }
+  public String getDescription() {
+    return description;
+  }
 
-    public String getPrice() {
-        return price;
-    }
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
-    public void setPrice(String price) {
-        this.price = price;
-    }
+  public String getLanguage() {
+    return language;
+  }
 
-    public String getThumbnailUrl() {
-        return thumbnailUrl;
-    }
+  public void setLanguage(String language) {
+    this.language = language;
+  }
 
-    public void setThumbnailUrl(String thumbnailUrl) {
-        this.thumbnailUrl = thumbnailUrl;
-    }
+  public String getDetailUrl() {
+    return detailUrl;
+  }
+
+  public void setDetailUrl(String detailUrl) {
+    this.detailUrl = detailUrl;
+  }
+
+  public String getThumbnailUrl() {
+    return thumbnailUrl;
+  }
+
+  public void setThumbnailUrl(String thumbnailUrl) {
+    this.thumbnailUrl = thumbnailUrl;
+  }
 }

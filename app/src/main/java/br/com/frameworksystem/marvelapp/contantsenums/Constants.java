@@ -29,5 +29,11 @@ public interface Constants {
 
   public static final String SERVICETAG = "SEV";
 
-  public static final String BASEURL = "http://gatewary.marvel.com";
+  public static final String BASEURL = "http://gateway.marvel.com";
+
+  public static final String API_CHARACTER = BASEURL + "/v1/public/characters";
+
+  public static final String API_EVENTS = BASEURL + "/v1/public/events";
+
+  public static final String API_CHARACTER_COMICS = API_CHARACTER + "/";
 }

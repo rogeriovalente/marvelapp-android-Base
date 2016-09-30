@@ -30,6 +30,7 @@ import br.com.frameworksystem.marvelapp.R;
 import br.com.frameworksystem.marvelapp.contantsenums.Constants;
 import br.com.frameworksystem.marvelapp.db.SQLiteHelper;
 import br.com.frameworksystem.marvelapp.model.Character;
+import br.com.frameworksystem.marvelapp.model.MarvelImage;
 import br.com.frameworksystem.marvelapp.service.MP3Player;
 import br.com.frameworksystem.marvelapp.service.MP3Service;
 
@@ -86,12 +87,12 @@ public class CharacterDetailActivity extends BaseActivity {
     setTitle(character.getName());
 
     ImageView imageView = (ImageView) findViewById(R.id.character_detail_thumb);
-    Picasso.with(this).load(character.getThumbnailUrl()).centerCrop().resize(600, 600).into(imageView);
+    Picasso.with(this).load(character.thumbnail.getImageUrl(MarvelImage.Size.FULLSIZE)).centerCrop().resize(600, 600).into(imageView);
     TextView textView = (TextView) findViewById(R.id.character_detail_description);
     textView.setText(character.getDescription());
 
     Button btnPlay = (Button) findViewById(R.id.btn_play);
-    btnPlay.setOnClickListener(new View.OnClickListener(){
+    btnPlay.setOnClickListener(new View.OnClickListener() {
 
       @Override
       public void onClick(View v) {
@@ -100,7 +101,7 @@ public class CharacterDetailActivity extends BaseActivity {
     });
 
     Button btnStop = (Button) findViewById(R.id.btn_stop);
-    btnStop.setOnClickListener(new View.OnClickListener(){
+    btnStop.setOnClickListener(new View.OnClickListener() {
 
       @Override
       public void onClick(View v) {
@@ -154,11 +155,11 @@ public class CharacterDetailActivity extends BaseActivity {
     actionProvider.setShareIntent(intentBuilder.getIntent());
 
     MenuItem item = (MenuItem) menu.findItem(R.id.action_favorite);
-    if (character.getFavorite() != null && character.getFavorite().intValue() == 1) {
+    /*if (character.getFavorite() != null && character.getFavorite().intValue() == 1) {
       item.setIcon(R.drawable.ic_action_favorite_on);
     } else {
       item.setIcon(R.drawable.ic_action_favorite_off);
-    }
+    }*/
 
     return super.onCreateOptionsMenu(menu);
   }
@@ -209,7 +210,7 @@ public class CharacterDetailActivity extends BaseActivity {
     locCharacter.setId(String.valueOf(cursor.getInt(cursor.getColumnIndex("id"))));
     locCharacter.setName(cursor.getString(cursor.getColumnIndex("name")));
     locCharacter.setDescription(cursor.getString(cursor.getColumnIndex("description")));
-    locCharacter.setFavorite(cursor.getInt(cursor.getColumnIndex("favorite")));
+    //locCharacter.setFavorite(cursor.getInt(cursor.getColumnIndex("favorite")));
 
     return locCharacter;
   }

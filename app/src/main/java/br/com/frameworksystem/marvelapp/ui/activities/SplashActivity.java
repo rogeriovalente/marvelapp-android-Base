@@ -27,7 +27,7 @@ public class SplashActivity extends BaseActivity {
     loadGalleryImages();
 
     RelativeLayout relLayout = (RelativeLayout) findViewById(R.id.skip);
-    relLayout.setOnClickListener(new View.OnClickListener(){
+    relLayout.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
         finish();

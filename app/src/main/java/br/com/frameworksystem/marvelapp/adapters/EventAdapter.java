@@ -16,6 +16,8 @@ import java.util.List;
 
 import br.com.frameworksystem.marvelapp.R;
 import br.com.frameworksystem.marvelapp.model.Event;
+import br.com.frameworksystem.marvelapp.model.MarvelImage;
+import br.com.frameworksystem.marvelapp.model.MarvelUrl;
 import br.com.frameworksystem.marvelapp.ui.activities.EventDetailActivity;
 
 /**
@@ -41,7 +43,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
   public void onBindViewHolder(EventAdapter.ViewHolder holder, int position) {
     Event event = events.get(position);
     holder.eventTitle.setText(event.getTitle());
-    Picasso.with(context).load(event.getImgUrl()).centerCrop().resize(400, 400).into(holder.eventImg);
+    Picasso.with(context).load(event.getThumbnail().getImageUrl(MarvelImage.Size.DETAIL)).centerCrop().resize(400, 400).into(holder.eventImg);
   }
 
   @Override
@@ -75,7 +77,8 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
         Event event = events.get(position);
 
         if (view.getResources().getBoolean(R.bool.isTablet)) {
-          webView.loadUrl(event.getUrl());
+          MarvelUrl url = event.getUrls().get(0);
+          webView.loadUrl(url.url);
         } else {
           Intent intent = new Intent(context, EventDetailActivity.class);
           intent.putExtra("event", event);

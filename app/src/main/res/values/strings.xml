@@ -12,4 +12,6 @@
     <string name="character_detail_name">Personagem</string>
     <string name="title_share">Compartilhar</string>
     <string name="msg_error_generic">Erro!</string>
+    <string name="MAPS_API">AIzaSyD7l5Ec3O_4wNuWnPSTO2vgWGg7rNyRHSw</string>
+    <string name="distancia">Calcular Distância</string>
 </resources>

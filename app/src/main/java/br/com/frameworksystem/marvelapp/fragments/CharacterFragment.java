@@ -1,5 +1,6 @@
 package br.com.frameworksystem.marvelapp.fragments;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -23,13 +24,14 @@ import br.com.frameworksystem.marvelapp.model.Character;
 /**
  * Created by rogerio.valente on 13/09/2016.
  */
+@SuppressLint("ValidFragment")
 public class CharacterFragment extends Fragment {
   RecyclerView recyclerView;
   CharacterAdapter characterAdapter;
   int menuOption;
 
   public CharacterFragment() {
-    super();
+
   }
 
   public CharacterFragment(int caller) {

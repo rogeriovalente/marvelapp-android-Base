@@ -7,6 +7,13 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true"/>
+
     <application
         android:name=".MarvelApp"
         android:allowBackup="true"
@@ -44,9 +51,19 @@
             android:label="Comic Detail"
             android:parentActivityName=".ui.activities.MainActivity"/>
 
+        <activity android:name=".ui.activities.PlaceActivity"
+                  android:label="Place Activity"/>
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="aa2da8212eec8e564e124de8cbe67ab8f4cbf3be"/>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/MAPS_API" />
 
         <receiver
             android:name=".broadcast.BootBroadCastReceiver"

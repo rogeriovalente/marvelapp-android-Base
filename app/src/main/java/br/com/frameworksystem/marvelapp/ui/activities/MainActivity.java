@@ -18,11 +18,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.MapFragment;
+
 import br.com.frameworksystem.marvelapp.R;
 import br.com.frameworksystem.marvelapp.broadcast.NetworkBroadcast;
 import br.com.frameworksystem.marvelapp.fragments.CharacterFragment;
 import br.com.frameworksystem.marvelapp.fragments.ComicFragment;
 import br.com.frameworksystem.marvelapp.fragments.EventFragment;
+import br.com.frameworksystem.marvelapp.fragments.MapsFragment;
 
 public class MainActivity extends BaseActivity
     implements NavigationView.OnNavigationItemSelectedListener {
@@ -118,6 +121,9 @@ public class MainActivity extends BaseActivity
         ft.commit();
       } else if (id == R.id.nav_comics) {
         ft.replace(R.id.content_main, new CharacterFragment(1));
+        ft.commit();
+      } else if (id == R.id.nav_maps) {
+        ft.replace(R.id.content_main, new MapsFragment());
         ft.commit();
       }
     }

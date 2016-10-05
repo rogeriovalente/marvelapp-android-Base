@@ -14,6 +14,10 @@
         <item
             android:id="@+id/nav_comics"
             android:title="Comics" />
+
+        <item
+            android:id="@+id/nav_maps"
+            android:title="Mapa" />
     </group>
 
 </menu>
